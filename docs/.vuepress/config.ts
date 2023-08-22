@@ -5,8 +5,7 @@ import sidebar from "./config/sidebar";
 import { backToTopPlugin } from "@vuepress/plugin-back-to-top";
 import { nprogressPlugin } from "@vuepress/plugin-nprogress";
 import { activeHeaderLinksPlugin } from "@vuepress/plugin-active-header-links";
-import { demoContainerPlugin } from "../../plugin/demo-container";
-// import { demoblockPlugin } from 'vuepress-plugin-demoblock-plus'
+import { demoContainerPlugin } from "../../plugin/demo-container"
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -31,12 +30,9 @@ export default defineUserConfig({
     backToTopPlugin(),
     nprogressPlugin(),
     activeHeaderLinksPlugin(),
-    // demoContainerPlugin({}),
+    // shikiPlugin()
+    demoContainerPlugin({}),
     // demoblockPlugin()
   ],
+  port: 8090
 });
-
-// "@vuepress/plugin-active-header-links": "^2.0.0-beta.66",
-// "@vuepress/plugin-back-to-top": "^2.0.0-beta.66",
-// "@vuepress/plugin-nprogress": "^2.0.0-beta.66",
-// "vuepress": "^2.0.0-beta.66"

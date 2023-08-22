@@ -10,5 +10,5 @@ export default defineClientConfig({
   enhance({ app, router, siteData }) {},
   setup() {},
   layouts: {},
-  rootComponents: [],
+  rootComponents: []
 })

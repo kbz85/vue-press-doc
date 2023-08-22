@@ -1,20 +1,42 @@
 <template>
-    <div class="demo-block">
+    <div :class="['demo-block', customClass ? customClass : '']">
         <div class="demo-content">
-            <slot name="demo"></slot>
+            <!-- {{  sourceCode }} -->
+            <slot>i</slot>
         </div>
         <div class="meta" ref="meta">
             <div class="description" v-if="$slots.description">
                 <slot name="description"></slot>
             </div>
             <div class="code-content">
-                <slot name="source"></slot>
+                <slot name="highlight"></slot>
+            </div>
+        </div>
+        <div class="">
+            <div class="control-button-wrap">
+                <span @click.stop="handleCopy">复制代码</span>  
             </div>
         </div>
     </div>
 </template>
 <script lang='ts' setup>
-
+import { useClipboard } from '@vueuse/core'
+import { message } from 'ant-design-vue'
+const props = defineProps<{
+    customClass: string
+    sourceCode: string
+}>()
+//  复制代码
+const { copy } = useClipboard()
+const handleCopy = async () => {
+    try {
+        copy(props.sourceCode)
+        message.success('复制成功')
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 </script>
 <style lang="css" scoped>
 .demo-block {
