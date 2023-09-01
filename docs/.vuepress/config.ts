@@ -1,11 +1,14 @@
 import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
-import navbar from "./config/navbar";
-import sidebar from "./config/sidebar";
+import {
+  navbar,
+  sidebar
+} from './config/index'
 import { backToTopPlugin } from "@vuepress/plugin-back-to-top";
 import { nprogressPlugin } from "@vuepress/plugin-nprogress";
 import { activeHeaderLinksPlugin } from "@vuepress/plugin-active-header-links";
 import { demoContainerPlugin } from "../../plugin/demo-container"
+import { demoPlugin } from "../../plugin/demo-docs-plugin"
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -30,8 +33,9 @@ export default defineUserConfig({
     backToTopPlugin(),
     nprogressPlugin(),
     activeHeaderLinksPlugin(),
+    demoPlugin({})
     // shikiPlugin()
-    demoContainerPlugin({}),
+    // demoContainerPlugin({}),
     // demoblockPlugin()
   ],
   port: 8090

@@ -1,38 +1,17 @@
 # 6666
-:::demo 使用 `size`、`style` 属性来定义 Card 的样式。
-```vue
-<template>
-  <div class="card-wrap">
-    <div class="card">{{ title }}</div>
-  </div>
-</template>
-<script>
-import { ref, defineComponent } from 'vue'
 
-export default defineComponent({
-  setup() {
-    const title = ref('vuepress-plugin-demoblock-plus')
+<ClientOnly>
+<Button type="primary">Click me</Button>
 
-    return { title }
-  }
-})
+<script lang='ts' setup>
+import { Button } from 'ant-design-vue'
 </script>
+</ClientOnly>
 
-<style lang="less">
-.card-wrap {
-  text-align: center;
-  .card {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--c-brand);
-    background: var(--c-bg);
-    border: 1px solid var(--c-brand);
-    height: 80px;
-    width: 600px;
-  }
-}
-</style>
-```
+<ClientOnly>
+<Input >Click me</Input>
+
+<script lang='ts' setup>
+import { Input } from 'ant-design-vue'
+</script>
+</ClientOnly>

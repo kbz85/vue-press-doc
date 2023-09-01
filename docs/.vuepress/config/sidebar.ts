@@ -6,4 +6,6 @@ const sidebar: SidebarConfig = {
   "/components/": sidebarComponents,
   "/documents/": sidebarDocuments,
 };
-export default sidebar;
+export {
+  sidebar
+};

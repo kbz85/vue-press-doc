@@ -43,4 +43,6 @@ const navbar: NavbarConfig = [
     ],
   },
 ];
-export default navbar;
+export {
+  navbar
+};
