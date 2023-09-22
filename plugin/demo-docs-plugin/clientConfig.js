@@ -3,11 +3,13 @@ import { ref } from 'vue'
 import Demo from "./Demo.vue";
 
 export default defineClientConfig({
-  enhance({ app }) {
+  enhance({ app, siteData, router  }) {
+    console.log(99999, import.meta.url);
     app.component("Demo", Demo);
   },
-  setup() {
-    const demos = ref(123123)
-    console.log(123123, demos.value);
-  },
+  // async setup() {
+  //   // console.log(app);
+  //   const demos = import.meta.glob('@examples/button/**.vue')
+  //   console.log(666022, demos);
+  // },
 });

@@ -8,7 +8,7 @@ const sidebar: SidebarConfigArray = [
     children: [
       {
         text: "Button 按钮",
-        link: "/components/ant-ui/button/Button",
+        link: "/components/ant-ui/Button",
       },
     ],
   }

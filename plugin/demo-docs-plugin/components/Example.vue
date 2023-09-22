@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
     file: {
         type: String,
         required: true,
@@ -9,6 +9,7 @@ defineProps({
         required: true,
     },
 })
+
 </script>
 
 <template>

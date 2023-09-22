@@ -1,31 +1,43 @@
 <template>
     <ClientOnly>
+        <!-- danger here DO NOT USE INLINE SCRIPT TAG -->
+        <p text="sm" v-html="decodedDescription" />
         <div class="example">
-            123123
-            <!-- <Example :file="path" :demo="formatPathDemos[path]" /> -->
+            <Example :file="path" :demo="formatPathDemos[path]" />
+            <SourceCode :source="source"></SourceCode>
         </div>
     </ClientOnly>
 </template>
 <script lang='ts' setup>
 import Example from './components/example.vue';
-import { computed } from 'vue'
+import SourceCode from './components/SourceCode.vue';
+import { computed, onMounted } from 'vue'
 const props = defineProps<{
     demos: Object,
-    path: string
+    path: string,
+    source: string,
+    rawSource: string,
+    description: string
 }>()
-console.log(787878, props.demos, props.path);
-const text = require('../../examples/' + props.path)
-console.log(text);
+const formatPathDemos = computed(() => {
+    const demos = {}
 
-// const formatPathDemos = computed(() => {
-//   const demos = {}
+    Object.keys(props.demos).forEach((key) => {
+        demos[key.replace('../../../examples/', '').replace('.vue', '')] =
+            props.demos[key].default
+    })
 
-//   Object.keys(props.demos).forEach((key) => {
-//     demos[key.replace('../../examples/', '').replace('.vue', '')] =
-//       props.demos[key].default
-//   })
+    return demos
+})
 
-//   return demos
-// })
+const decodedDescription = computed(() =>
+    decodeURIComponent(props.description!)
+)
+onMounted(async () => {
+    console.log(props.description);
+
+})
+
+
 </script>
 <style lang='less'></style>

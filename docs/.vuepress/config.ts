@@ -7,9 +7,8 @@ import {
 import { backToTopPlugin } from "@vuepress/plugin-back-to-top";
 import { nprogressPlugin } from "@vuepress/plugin-nprogress";
 import { activeHeaderLinksPlugin } from "@vuepress/plugin-active-header-links";
-import { demoContainerPlugin } from "../../plugin/demo-container"
 import { demoPlugin } from "../../plugin/demo-docs-plugin"
-
+// import './styles/index.scss'
 export default defineUserConfig({
   lang: "zh-CN",
   title: "Trustmo UI",
@@ -33,7 +32,7 @@ export default defineUserConfig({
     backToTopPlugin(),
     nprogressPlugin(),
     activeHeaderLinksPlugin(),
-    demoPlugin({})
+    demoPlugin()
     // shikiPlugin()
     // demoContainerPlugin({}),
     // demoblockPlugin()

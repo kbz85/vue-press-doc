@@ -13,12 +13,14 @@
     "escape-html": "^1.0.3",
     "less": "^4.2.0",
     "prismjs": "^1.29.0",
+    "vite-plugin-copy": "^0.1.6",
     "vuepress": "^2.0.0-beta.66"
   },
   "dependencies": {
     "@mdit-vue/plugin-sfc": "^0.12.0",
     "@vue/compiler-sfc": "^3.3.4",
     "@vueuse/core": "^10.3.0",
-    "ant-design-vue": "4.x"
+    "ant-design-vue": "4.x",
+    "glob": "^10.3.4"
   }
 }
