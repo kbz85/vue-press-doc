@@ -1,2 +1,14 @@
 @import './code.scss';
-@import './css-vars.scss'
+// @import './code.scss';
+@import './css-vars.scss';
+:root {
+    --sidebar-width: 240px;
+}
+.page {
+    padding-left: var(--sidebar-width);
+
+    .theme-default-content {
+        max-width: calc(100% - var(--sidebar-width));
+    }
+}
+

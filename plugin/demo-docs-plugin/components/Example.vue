@@ -23,7 +23,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .example-showcase {
     padding: 1.5rem;
-    margin: 0.5px;
     background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
 }
 </style>
