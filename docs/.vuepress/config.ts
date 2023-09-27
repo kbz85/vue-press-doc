@@ -7,6 +7,7 @@ import {
 import { backToTopPlugin } from "@vuepress/plugin-back-to-top";
 import { nprogressPlugin } from "@vuepress/plugin-nprogress";
 import { activeHeaderLinksPlugin } from "@vuepress/plugin-active-header-links";
+import { palettePlugin } from '@vuepress/plugin-palette'
 import { demoPlugin } from "../../plugin/demo-docs-plugin"
 // import './styles/index.scss'
 export default defineUserConfig({
@@ -27,15 +28,14 @@ export default defineUserConfig({
     // 导航栏
     navbar: navbar,
     sidebar: sidebar,
+    colorMode: 'dark'
   }),
   plugins: [
+    palettePlugin({ preset: 'sass' }),
     backToTopPlugin(),
     nprogressPlugin(),
     activeHeaderLinksPlugin(),
     demoPlugin()
-    // shikiPlugin()
-    // demoContainerPlugin({}),
-    // demoblockPlugin()
   ],
   port: 8090
 });
