@@ -5,7 +5,9 @@
         <div class="example">
             <Example :file="path" :demo="formatPathDemos[path]" />
             <SourceCode :source="source"></SourceCode>
+            <div class="hidden-code">隐藏密码</div>
         </div>
+       
     </ClientOnly>
 </template>
 <script lang='ts' setup>
@@ -21,12 +23,10 @@ const props = defineProps<{
 }>()
 const formatPathDemos = computed(() => {
     const demos = {}
-
     Object.keys(props.demos).forEach((key) => {
         demos[key.replace('../../../examples/', '').replace('.vue', '')] =
             props.demos[key].default
     })
-
     return demos
 })
 
@@ -35,9 +35,15 @@ const decodedDescription = computed(() =>
 )
 onMounted(async () => {
     console.log(props.description);
-
 })
-
-
 </script>
-<style lang='less'></style>
+<style lang='less'>
+.example {
+    border: 1px solid var(--border-color);
+    border-radius: var(--el-border-radius-base);
+
+    &-showcase {
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+</style>
