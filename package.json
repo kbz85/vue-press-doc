@@ -4,25 +4,34 @@
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
+    "@vuepress/client": "2.0.0-beta.67",
     "@vuepress/plugin-active-header-links": "^2.0.0-beta.66",
     "@vuepress/plugin-back-to-top": "^2.0.0-beta.66",
     "@vuepress/plugin-nprogress": "^2.0.0-beta.66",
     "@vuepress/plugin-palette": "^2.0.0-beta.67",
+    "@vuepress/plugin-search": "^2.0.0-beta.67",
     "@vuepress/plugin-shiki": "^2.0.0-beta.66",
+    "@vuepress/plugin-theme-data": "2.0.0-beta.67",
+    "@vuepress/utils": "2.0.0-beta.67",
     "chalk": "^5.3.0",
     "consola": "^3.2.3",
     "escape-html": "^1.0.3",
     "less": "^4.2.0",
     "prismjs": "^1.29.0",
+    "ssh2-sftp-client": "^9.1.0",
     "vite-plugin-copy": "^0.1.6",
-    "vuepress": "^2.0.0-beta.66"
+    "vue": "^3.3.4",
+    "vuepress": "2.0.0-beta.67"
   },
   "dependencies": {
     "@mdit-vue/plugin-sfc": "^0.12.0",
     "@vue/compiler-sfc": "^3.3.4",
+    "@vuepress/theme-default": "2.0.0-beta.67",
     "@vueuse/core": "^10.3.0",
     "ant-design-vue": "4.x",
     "glob": "^10.3.4",
+    "markdown-it": "^13.0.2",
+    "markdown-it-container": "^3.0.0",
     "prism-theme-vars": "^0.2.4"
   }
 }

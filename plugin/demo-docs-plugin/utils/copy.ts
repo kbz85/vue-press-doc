@@ -1,43 +1,28 @@
-import { stat, readdir, copyFile, access, mkdir } from 'fs/promises';
-import { constants, Stats } from 'fs';
-import { join, basename, dirname } from 'path';
-import fg from 'fast-glob';
+function copyToClipboard(text) {
+  const bgColor = "#00ff00";
 
-async function prepare_dir(dir) {
-    const parents = dirname(dir);
-    await access(parents, constants.F_OK).catch(async (err) => {
-        if (err.code == 'ENOENT') await prepare_dir(parents);
-    });
-    await access(dir, constants.F_OK).catch(async (err) => {
-        if (err.code == 'ENOENT') await mkdir(dir).catch(err => {
-            if (err.code !== 'EEXIST') console.log(err);
-        });
-    });
-}
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.background = bgColor;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
 
-async function copyToDir(src, tarDir) {
-    await prepare_dir(tarDir);
+  // 显示成功提示
+  const successMessage = document.createElement("div");
+  successMessage.textContent = "Text copied to clipboard!";
+  successMessage.style.position = "fixed";
+  successMessage.style.bottom = "15px";
+  successMessage.style.right = "15px";
+  successMessage.style.background = bgColor;
+  successMessage.style.color = "white";
+  successMessage.style.padding = "10px";
+  document.body.appendChild(successMessage);
 
-    let notExsit = false;
-    const fstat = await stat(src).catch(err => {
-        if (err.code == 'ENOENT') {
-            console.log(tarDir + ' is not exist');
-            notExsit = true;
-        }
-    }) as Stats;
-    if (notExsit) return;
-    const tarPath = join(tarDir, basename(src));
-    if (fstat.isDirectory()) {
-        for (const file of await readdir(src)) {
-            const srcPath = join(src, file);
-            copyToDir(srcPath, tarPath);
-        }
-    } else {
-        await copyFile(src, tarPath).catch(err => {
-            console.log(`The file "${src}" could not be copied`);
-        });
-    }
+  // 3 秒后隐藏提示
+  setTimeout(() => {
+    successMessage.remove();
+  }, 3000);
 }
-export {
-    copyToDir
-}
+export { copyToClipboard };

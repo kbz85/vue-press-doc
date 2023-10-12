@@ -2,13 +2,13 @@ import { SidebarConfigArray } from "vuepress";
 
 const sidebar: SidebarConfigArray = [
   {
-    text: "vuepress",
+    text: "文档",
     collapsible: true,
     // collapsable: true,
     children: [
       {
-        text: "创建插件",
-        link: "/documents/vuepress/CreatePlugin",
+        text: "编写组件文档",
+        link: "/documents/WriteComponent/",
       },
     ],
   }

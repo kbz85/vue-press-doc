@@ -10,6 +10,10 @@ const sidebar: SidebarConfigArray = [
         text: "Button 按钮",
         link: "/components/ant-ui/Button",
       },
+      {
+        text: "Switch 开关",
+        link: "/components/ant-ui/Switch",
+      },
     ],
   }
 ];
