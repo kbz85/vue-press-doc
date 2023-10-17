@@ -1,9 +1,13 @@
-import { defineUserConfig } from "vuepress";
+import { defineUserConfig, viteBundler } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
 import { navbar, sidebar } from "./config/index";
-import { palettePlugin } from "@vuepress/plugin-palette"
-import { demoPlugin } from "../../plugin/demo-docs-plugin"
-import { tmLayoutPlugin } from "../../plugin/tm-layout-plugin"
+import { palettePlugin } from "@vuepress/plugin-palette";
+import { demoPlugin } from "../../plugin/demo-docs-plugin";
+import { tmLayoutPlugin } from "../../plugin/tm-layout-plugin";
+import { getDirname } from "@vuepress/utils";
+// const __dirname = getDirname(import.meta.url);
+// console.log(__dirname, import.meta.url);
+
 // import './styles/index.scss'
 export default defineUserConfig({
   lang: "zh-CN",
@@ -32,17 +36,14 @@ export default defineUserConfig({
         danger: true,
         details: true,
         codeGroup: true,
-        codeGroupItem: true
+        codeGroupItem: true,
       },
       externalLinkIcon: true,
       mediumZoom: true,
       nprogress: true,
     },
   }),
-  plugins: [
-    palettePlugin({ preset: "sass" }),
-    tmLayoutPlugin(),
-    demoPlugin(),
-  ],
-  port: 8090,
+  //  @ts-ignore
+  plugins: [palettePlugin({ preset: "sass" }), tmLayoutPlugin(), demoPlugin()],
+  dest: 'docs-ui'
 });

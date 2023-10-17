@@ -3,8 +3,7 @@ import { SidebarConfigArray } from "vuepress";
 const sidebar: SidebarConfigArray = [
   {
     text: "通用",
-    collapsible: true,
-    // collapsable: true,
+    collapsible: false,
     children: [
       {
         text: "Button 按钮",
